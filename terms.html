@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>이용약관 · Gallory</title>
+<meta name="robots" content="noindex">
+<style>
+  :root{
+    --ink:#2b2622; --muted:#6d6459; --line:#e7ded1;
+    --canvas:#faf6ef; --card:#fffdf9; --coral:#e08a6f; --gold:#c79a4b;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--canvas); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Apple SD Gothic Neo","Noto Sans KR","Noto Sans JP",sans-serif;
+    line-height:1.72; font-size:16px;
+  }
+  .wrap{max-width:760px; margin:0 auto; padding:56px 22px 96px}
+  .brand{font-weight:800; letter-spacing:.22em; font-size:12px; color:var(--gold); text-transform:uppercase}
+  h1{font-size:30px; line-height:1.2; margin:.5rem 0 .2rem; letter-spacing:-.01em}
+  .eff{color:var(--muted); font-size:13.5px; margin:0 0 26px}
+  .lang{display:flex; gap:8px; margin:22px 0 30px; flex-wrap:wrap}
+  .lang button{
+    border:1px solid var(--line); background:var(--card); color:var(--muted);
+    padding:7px 14px; border-radius:999px; font-size:13px; font-weight:600; cursor:pointer;
+  }
+  .lang button[aria-selected="true"]{background:var(--ink); color:#fff; border-color:var(--ink)}
+  .rule{height:2px; background:var(--coral); width:44px; border:0; margin:0 0 30px}
+  section{margin:0 0 26px}
+  h2{font-size:16.5px; margin:0 0 8px; letter-spacing:-.005em}
+  p,.body{margin:0; color:#3c352e; white-space:pre-line}
+  .biz{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px 20px}
+  .biz p{color:var(--muted); font-size:14.5px}
+  footer{margin-top:44px; padding-top:22px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+  a{color:var(--coral)}
+  [hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">Gallory</div>
+  <h1 id="ttl">이용약관</h1>
+  <p class="eff" id="eff">시행일: 앱 출시일 (확정 시 갱신)</p>
+
+  <div class="lang" role="tablist" aria-label="language">
+    <button role="tab" data-lang="ko" aria-selected="true">한국어</button>
+    <button role="tab" data-lang="en" aria-selected="false">English</button>
+    <button role="tab" data-lang="ja" aria-selected="false">日本語</button>
+  </div>
+  <hr class="rule">
+
+  <!-- 한국어 -->
+  <div data-body="ko">
+    <section><h2>동의</h2><p>본 약관은 Gallory(이하 "앱") 이용에 적용됩니다. 앱을 사용하면 본 약관에 동의하는 것으로 봅니다.</p></section>
+    <section><h2>이용 허락</h2><p>앱은 개인적·비상업적 용도로 사용하도록 제공됩니다. 법이 허용하는 범위를 넘어 앱을 복제·변조·역설계하거나 타인의 권리를 침해하는 용도로 사용하지 않습니다.</p></section>
+    <section><h2>당신의 콘텐츠</h2><p>앱이 다루는 사진·기록의 권리는 전적으로 당신에게 있습니다. 앱은 그에 대한 어떤 권리도 주장하지 않습니다. 당신이 외부로 공유하는 내용에 대한 책임은 당신에게 있습니다.</p></section>
+    <section><h2>유료 결제</h2><p>Pro(평생)와 프리미엄 템플릿 등 유료 구매의 결제·영수증·환불은 Apple App Store 및 Google Play의 정책에 따릅니다. 환불 요청은 각 스토어를 통해 처리됩니다.</p></section>
+    <section><h2>자동 추정 기능</h2><p>여행 자동 감지·위치 추정·동네명·페르소나 등 일부 기능은 사진의 시각·위치 등을 바탕으로 한 추정이며, 정확하지 않을 수 있습니다. 참고용으로 제공됩니다.</p></section>
+    <section><h2>제3자 서비스</h2><p>지도·지오코딩 등 외부 서비스는 각 제공자의 약관이 적용됩니다.</p></section>
+    <section><h2>보증의 부인</h2><p>앱은 "있는 그대로" 제공되며, 법이 허용하는 범위에서 명시적·묵시적 보증을 하지 않습니다. 데이터 손실에 대비해 “설정 → 데이터”에서 백업을 권장합니다.</p></section>
+    <section><h2>책임의 제한</h2><p>법이 허용하는 최대 범위에서, 앱 이용으로 발생한 간접·부수적 손해에 대해 책임지지 않습니다.</p></section>
+    <section><h2>변경·종료</h2><p>약관은 변경될 수 있으며, 변경 시 시행일을 갱신합니다. 약관에 동의하지 않으면 앱 사용을 중단하고 삭제할 수 있습니다.</p></section>
+    <section><h2>준거법·사업자·문의</h2><p>본 약관은 대한민국 법률에 따릅니다.</p></section>
+    <section class="biz"><h2>사업자 정보</h2><p>상호: 주식회사 레이픽 (raypick Inc.)
+대표자: 신상권
+사업자등록번호: 781-86-04185
+주소: 경상남도 창원시 진해구 연구단지1길 16, 207-2호
+문의: <a href="mailto:support@gallory.app">support@gallory.app</a></p></section>
+  </div>
+
+  <!-- English -->
+  <div data-body="en" hidden>
+    <section><h2>Acceptance</h2><p>These terms apply to your use of Gallory ("the app"). By using the app, you agree to these terms.</p></section>
+    <section><h2>License</h2><p>The app is provided for personal, non-commercial use. Except as permitted by law, do not copy, modify, reverse engineer, or use the app to infringe the rights of others.</p></section>
+    <section><h2>Your content</h2><p>You own all rights to the photos and records the app handles. The app claims no rights to them. You are responsible for content you choose to share.</p></section>
+    <section><h2>Payments</h2><p>Payments, receipts and refunds for purchases (Pro lifetime and premium templates) follow the policies of the Apple App Store and Google Play. Refund requests are handled through each store.</p></section>
+    <section><h2>Automatic estimates</h2><p>Features such as automatic trip detection, location inference, place names and personas are estimates based on photo time and location and may be inaccurate. They are provided for reference.</p></section>
+    <section><h2>Third-party services</h2><p>Outside services such as maps and geocoding are subject to their own providers' terms.</p></section>
+    <section><h2>Disclaimer</h2><p>The app is provided "as is" without warranties of any kind to the extent permitted by law. We recommend backing up via "Settings → Data" to guard against data loss.</p></section>
+    <section><h2>Limitation of liability</h2><p>To the maximum extent permitted by law, we are not liable for indirect or incidental damages arising from use of the app.</p></section>
+    <section><h2>Changes and termination</h2><p>These terms may change; we update the effective date when they do. If you do not agree, you may stop using and delete the app.</p></section>
+    <section><h2>Governing law</h2><p>These terms are governed by the laws of the Republic of Korea.</p></section>
+    <section class="biz"><h2>Business information</h2><p>Company: raypick Inc.
+Representative: Shin Sangkwon
+Business registration no.: 781-86-04185
+Address: 207-2, 16, Yeongudanji 1-gil, Jinhae-gu, Changwon-si, Gyeongsangnam-do, Republic of Korea
+Contact: <a href="mailto:support@gallory.app">support@gallory.app</a></p></section>
+  </div>
+
+  <!-- 日本語 -->
+  <div data-body="ja" hidden>
+    <section><h2>同意</h2><p>本規約は Gallory（以下「本アプリ」）の利用に適用されます。本アプリを使用することで本規約に同意したものとみなします。</p></section>
+    <section><h2>利用許諾</h2><p>本アプリは個人的・非商業的な利用のために提供されます。法が認める範囲を超えて複製・改変・リバースエンジニアリングを行い、または他者の権利を侵害する用途で使用しないでください。</p></section>
+    <section><h2>あなたのコンテンツ</h2><p>本アプリが扱う写真・記録の権利はすべてあなたに帰属します。本アプリはそれらに対していかなる権利も主張しません。外部へ共有する内容についての責任はあなたにあります。</p></section>
+    <section><h2>有料課金</h2><p>Pro（買い切り）やプレミアムテンプレートなどの有料購入の決済・領収書・返金は Apple App Store および Google Play のポリシーに従います。返金申請は各ストアを通じて処理されます。</p></section>
+    <section><h2>自動推定機能</h2><p>旅行の自動検出・位置推定・地名・ペルソナなどの機能は、写真の時刻・位置などに基づく推定であり、正確でない場合があります。参考としてご利用ください。</p></section>
+    <section><h2>第三者サービス</h2><p>地図・ジオコーディングなどの外部サービスには各提供者の規約が適用されます。</p></section>
+    <section><h2>保証の否認</h2><p>本アプリは「現状有姿」で提供され、法が認める範囲で明示・黙示の保証を行いません。データ消失に備え「設定 → データ」でのバックアップを推奨します。</p></section>
+    <section><h2>責任の制限</h2><p>法が認める最大限の範囲で、本アプリの利用により生じた間接的・付随的損害について責任を負いません。</p></section>
+    <section><h2>変更・終了</h2><p>規約は変更されることがあり、その際は施行日を更新します。規約に同意しない場合は利用を中止し削除できます。</p></section>
+    <section><h2>準拠法</h2><p>本規約は大韓民国の法令に準拠します。</p></section>
+    <section class="biz"><h2>事業者情報</h2><p>商号：raypick Inc.（株式会社レイピック）
+代表者：Shin Sangkwon
+事業者登録番号：781-86-04185
+所在地：207-2, 16, Yeongudanji 1-gil, Jinhae-gu, Changwon-si, Gyeongsangnam-do, Republic of Korea
+お問い合わせ：<a href="mailto:support@gallory.app">support@gallory.app</a></p></section>
+  </div>
+
+  <footer>© 2026 raypick Inc. · <a href="mailto:support@gallory.app">support@gallory.app</a></footer>
+</div>
+
+<script>
+  var titles={ko:"이용약관",en:"Terms of Service",ja:"利用規約"};
+  var effs={ko:"시행일: 앱 출시일 (확정 시 갱신)",en:"Effective: app launch date (to be finalized)",ja:"施行日：アプリ公開日（確定時に更新）"};
+  var btns=document.querySelectorAll('.lang button');
+  btns.forEach(function(b){
+    b.addEventListener('click',function(){
+      var lang=b.dataset.lang;
+      btns.forEach(function(x){x.setAttribute('aria-selected', x===b?'true':'false')});
+      document.querySelectorAll('[data-body]').forEach(function(d){d.hidden = d.dataset.body!==lang});
+      document.getElementById('ttl').textContent=titles[lang];
+      document.getElementById('eff').textContent=effs[lang];
+      document.documentElement.lang=lang;
+    });
+  });
+</script>
+</body>
+</html>
