@@ -3,117 +3,227 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gallory — 당신의 갤러리, 당신의 이야기</title>
-<meta name="description" content="사진이 저절로 한 권의 잡지가 됩니다. 100% 당신의 기기 안에서.">
+<title>Gallory — 내 사진으로 직접 만드는 매거진</title>
+<meta name="description" content="사진을 고르면 표지가 되고, 더 고르면 속지가 깔립니다. 맛집 지도와 여행 경로까지 한 권으로. 100% 내 폰 안에서, 광고 없이.">
+<meta property="og:title" content="Gallory — 내 사진으로 직접 만드는 매거진">
+<meta property="og:description" content="사진을 고르면 표지가 되고, 더 고르면 속지가 깔립니다. 맛집 지도와 여행 경로까지 한 권으로.">
+<meta property="og:image" content="https://gallory.app/img/cover_travel.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#2b2622; --muted:#6d6459; --line:#e7ded1;
-    --canvas:#faf6ef; --card:#fffdf9; --coral:#e08a6f; --coral-deep:#c96b4e;
-    --gold:#c79a4b; --red:#c0392b;
+    --ink:#2a2624; --ink2:#4a433d; --muted:#7a7269; --line:#e7ded1;
+    --paper:#faf9f6; --card:#fffdf9; --cream:#f6efe5; --coral:#e8735a; --coral-deep:#c96b4e;
+    --gold:#c9a24a; --apricot:#f2c6b4;
   }
   *{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%; scroll-behavior:smooth}
-  body{
-    margin:0; background:var(--canvas); color:var(--ink);
+  body{margin:0; background:var(--paper); color:var(--ink);
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Apple SD Gothic Neo","Noto Sans KR","Noto Sans JP",sans-serif;
-    line-height:1.65;
-  }
-  .wrap{max-width:1040px; margin:0 auto; padding:0 22px}
+    line-height:1.65; word-break:keep-all; overflow-wrap:anywhere}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 22px}
   a{color:inherit}
+  .serif{font-family:"Libre Bodoni",Georgia,"Times New Roman",serif}
 
-  /* nav */
-  nav{display:flex; align-items:center; justify-content:space-between; padding:26px 0}
-  .brand{font-weight:800; letter-spacing:.24em; font-size:15px; color:var(--gold); text-transform:uppercase}
-  .lang{display:flex; gap:6px}
-  .lang button{border:1px solid var(--line); background:var(--card); color:var(--muted); padding:6px 12px; border-radius:999px; font-size:12.5px; font-weight:600; cursor:pointer}
+  nav{display:flex; align-items:center; justify-content:space-between; padding:24px 0}
+  .brand{font-family:"Libre Bodoni",Georgia,serif; font-weight:700; letter-spacing:.24em; font-size:16px; color:var(--ink); text-transform:uppercase; text-decoration:none; white-space:nowrap}
+  .lang{display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-end}
+  .lang button{border:1px solid var(--line); background:var(--card); color:var(--muted); padding:6px 11px; border-radius:999px; font-size:12.5px; font-weight:600; cursor:pointer}
   .lang button[aria-selected="true"]{background:var(--ink); color:#fff; border-color:var(--ink)}
 
   /* hero */
-  .hero{display:grid; grid-template-columns:1.15fr .85fr; gap:40px; align-items:center; padding:44px 0 64px}
-  .eyebrow{font-size:12.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--coral-deep); font-weight:700; margin-bottom:18px}
-  h1{font-size:46px; line-height:1.12; letter-spacing:-.02em; margin:0 0 18px; font-weight:800}
-  .lead{font-size:17px; color:#413a32; margin:0 0 28px; max-width:30em}
-  .badges{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
-  .badge{display:inline-flex; align-items:center; gap:8px; background:var(--ink); color:#fff; border-radius:12px; padding:11px 16px; font-size:13.5px; font-weight:600}
-  .badge small{display:block; font-size:10px; letter-spacing:.12em; opacity:.7; text-transform:uppercase; font-weight:700}
+  .hero{display:grid; grid-template-columns:1fr 1fr; gap:36px; align-items:center; padding:36px 0 56px}
+  .eyebrow{font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:var(--coral-deep); font-weight:700; margin-bottom:16px}
+  h1{font-size:44px; line-height:1.14; letter-spacing:-.015em; margin:0 0 18px; font-weight:800}
+  .lead{font-size:17.5px; color:var(--ink2); margin:0 0 26px; max-width:30em}
+  .badges{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
+  .badge{display:inline-flex; flex-direction:column; background:var(--ink); color:#fff; border-radius:12px; padding:10px 16px; font-size:14px; font-weight:700; line-height:1.2; text-decoration:none}
+  .badge small{font-size:10px; letter-spacing:.12em; opacity:.7; text-transform:uppercase; font-weight:700; margin-bottom:3px}
   .soon{color:var(--muted); font-size:13px; margin-top:14px}
+  .soon a{color:var(--coral-deep); text-decoration:none}
 
-  /* hero mock magazine cover */
-  .cover{aspect-ratio:3/4; border-radius:20px; overflow:hidden; box-shadow:0 24px 60px rgba(43,38,34,.18); background:#111; position:relative; max-width:340px; margin-left:auto}
-  /* 히어로 커버 사진 = Unsplash(무료·상업사용 가능, 출처 표기 불필요). photo-1760112279875 */
-  .cover .photo{position:absolute; inset:0; background:#6c3f5a url('hero.jpg') center/cover no-repeat;}
-  .cover .scrim{position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.42) 0%, rgba(0,0,0,.06) 32%, transparent 50%, rgba(0,0,0,.66) 100%)}
-  .cover .mast{position:absolute; left:20px; right:20px; top:20px}
-  .cover .rule{height:3px; background:var(--red)}
-  .cover .rule.thin{height:1px; margin-top:2.5px}
-  .cover .masttxt{display:flex; justify-content:space-between; color:#fff; font-size:10px; letter-spacing:.16em; font-weight:700; margin-top:8px; opacity:.95}
-  .cover .cap{position:absolute; left:20px; right:20px; bottom:20px; color:#fff}
-  .cover .cap .k{font-size:10px; letter-spacing:.24em; font-weight:700; opacity:.8}
-  .cover .cap h3{font-size:27px; line-height:1.1; margin:7px 0 6px; font-weight:800; letter-spacing:-.01em}
-  .cover .cap p{font-size:12px; opacity:.9; margin:0}
+  /* cover fan */
+  .fan{position:relative; height:520px}
+  .fan img{position:absolute; width:210px; aspect-ratio:9/16; object-fit:cover; border-radius:6px; box-shadow:0 22px 50px rgba(42,38,36,.22); background:#eee}
+  .fan .c1{left:10%; top:60px; transform:rotate(-9deg); z-index:1}
+  .fan .c2{left:34%; top:0; z-index:3; width:240px; box-shadow:0 30px 60px rgba(42,38,36,.28)}
+  .fan .c3{left:62%; top:70px; transform:rotate(9deg); z-index:2}
+  .fan .tape{position:absolute; left:calc(34% + 90px); top:-10px; width:64px; height:18px; background:var(--apricot); opacity:.9; transform:rotate(-6deg); z-index:4}
 
-  /* values */
-  .values{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; padding:8px 0 72px}
-  .val{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:24px 22px}
-  .val .ic{font-size:24px; margin-bottom:12px}
-  .val h2{font-size:17px; margin:0 0 8px; letter-spacing:-.01em}
-  .val p{font-size:14px; color:var(--muted); margin:0}
+  /* sections */
+  section{padding:56px 0}
+  .kicker{font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); font-weight:700; margin-bottom:10px}
+  h2.t{font-size:30px; line-height:1.2; letter-spacing:-.01em; margin:0 0 12px}
+  .sub{color:var(--ink2); font-size:16px; max-width:40em; margin:0 0 30px}
+  .rule{width:40px; height:1px; background:var(--gold); border:0; margin:0 0 22px}
+
+  .steps{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+  .step{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:22px}
+  .step .no{font-family:"Libre Bodoni",serif; font-size:28px; color:var(--gold); line-height:1; margin-bottom:12px}
+  .step h3{font-size:17px; margin:0 0 8px}
+  .step p{margin:0; color:var(--muted); font-size:14.5px}
+
+  .grid{display:grid; grid-template-columns:repeat(9,1fr); gap:10px}
+  .grid img{width:100%; aspect-ratio:9/16; object-fit:cover; border-radius:4px; box-shadow:0 10px 24px rgba(42,38,36,.14); transition:transform .25s}
+  .grid img:hover{transform:translateY(-6px)}
+  .caps{display:grid; grid-template-columns:repeat(9,1fr); gap:10px; margin-top:10px; font-size:12px; color:var(--muted); text-align:center}
+
+  .values{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+  .val{background:var(--cream); border-radius:16px; padding:24px 22px}
+  .val .g{font-family:"Libre Bodoni",serif; font-size:22px; color:var(--ink); margin-bottom:10px}
+  .val h3{font-size:17px; margin:0 0 8px}
+  .val p{margin:0; color:var(--ink2); font-size:14.5px}
+
+  .price{display:grid; grid-template-columns:1.1fr .9fr; gap:18px; align-items:stretch}
+  .pcard{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:26px}
+  .pcard.pro{background:var(--ink); color:#fff; border-color:var(--ink)}
+  .pcard h3{margin:0 0 6px; font-size:20px}
+  .pcard .p{font-family:"Libre Bodoni",serif; font-size:30px; margin:8px 0 6px; letter-spacing:.01em}
+  .pcard .p small{font-family:inherit; font-size:13px; opacity:.75; letter-spacing:0}
+  .pcard ul{margin:14px 0 0; padding:0 0 0 18px; font-size:14.5px; line-height:1.8}
+  .pcard.pro ul{opacity:.92}
+  .pcard .pill{display:inline-block; background:var(--gold); color:#fff; font-size:11px; font-weight:800; letter-spacing:.12em; padding:4px 9px; border-radius:999px; margin-bottom:10px}
+  .pnote{grid-column:1/-1; color:var(--muted); font-size:13px; margin-top:6px}
+
+  .faq{max-width:760px}
+  .faq details{border-top:1px solid var(--line); padding:16px 0}
+  .faq details:last-child{border-bottom:1px solid var(--line)}
+  .faq summary{cursor:pointer; font-weight:700; font-size:16px; list-style:none; display:flex; justify-content:space-between; gap:12px}
+  .faq summary::after{content:"+"; color:var(--gold); font-family:"Libre Bodoni",serif; font-size:20px}
+  .faq details[open] summary::after{content:"–"}
+  .faq p{margin:10px 0 0; color:var(--ink2); font-size:15px}
 
   footer{border-top:1px solid var(--line); padding:30px 0 60px; color:var(--muted); font-size:13px; display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap}
-  footer a{color:var(--coral); text-decoration:none; margin-left:16px}
+  footer a{color:var(--coral-deep); text-decoration:none; margin-left:16px}
   footer a:first-child{margin-left:0}
 
-  @media (max-width:760px){
-    .hero{grid-template-columns:1fr; gap:34px; padding:24px 0 48px}
-    h1{font-size:36px}
-    .cover{max-width:280px; margin:0 auto}
-    .values{grid-template-columns:1fr; padding-bottom:48px}
-    .order2{order:2}
+  @media (max-width:860px){
+    nav{padding:18px 0}
+    .brand{font-size:14px; letter-spacing:.16em}
+    .lang{gap:4px} .lang button{padding:5px 9px; font-size:11.5px}
+    .hero{grid-template-columns:1fr; gap:26px; padding:20px 0 40px}
+    h1{font-size:34px}
+    .fan{height:420px}
+    .fan img{width:150px}
+    .fan .c2{width:176px; left:calc(50% - 88px)}
+    .fan .c1{left:4%; top:50px} .fan .c3{left:auto; right:4%; top:60px}
+    .fan .tape{left:calc(50% - 32px)}
+    .steps,.values{grid-template-columns:1fr}
+    .grid,.caps{grid-template-columns:repeat(3,1fr)}
+    .price{grid-template-columns:1fr}
+    section{padding:40px 0}
   }
 </style>
 </head>
 <body>
 <div class="wrap">
   <nav>
-    <div class="brand">Gallory</div>
+    <a class="brand" href="./">Gallory</a>
     <div class="lang" role="tablist" aria-label="language">
       <button role="tab" data-lang="ko" aria-selected="true">한국어</button>
       <button role="tab" data-lang="en" aria-selected="false">EN</button>
       <button role="tab" data-lang="ja" aria-selected="false">日本語</button>
+      <button role="tab" data-lang="es" aria-selected="false">ES</button>
+      <button role="tab" data-lang="pt" aria-selected="false">PT</button>
     </div>
   </nav>
 
-  <section class="hero">
+  <section class="hero" style="padding-top:20px">
     <div>
-      <div class="eyebrow" data-t="eyebrow">100% 당신의 기기 안에서</div>
-      <h1 data-t="h1">당신의 사진이,<br>한 권의 잡지가 됩니다.</h1>
-      <p class="lead" data-t="lead">여행·인물·맛집·한 해가 저절로 아름다운 매거진과 영상으로 편집됩니다. 사진은 클라우드로 보내지 않습니다 — 전부 당신의 폰 안에서.</p>
+      <div class="eyebrow" data-t="eyebrow">사진 한 장으로 시작하는 나만의 잡지</div>
+      <h1 data-t="h1">내 사진으로,<br>내가 직접 만드는 매거진.</h1>
+      <p class="lead" data-t="lead">사진을 고르면 표지가 되고, 더 고르면 속지가 깔립니다. 좋아하는 맛집은 지도로, 여행은 경로를 손으로 그려 한 권에. 자동으로 만들어 주는 앱이 아니라, 당신이 만드는 앱입니다.</p>
       <div class="badges">
-        <span class="badge"><small data-t="dl">곧 출시</small>App Store</span>
         <span class="badge"><small data-t="dl">곧 출시</small>Google Play</span>
+        <span class="badge"><small data-t="dl2">곧 출시</small>App Store</span>
       </div>
       <p class="soon" data-t="soon">출시 소식과 문의: <a href="mailto:support@gallory.app">support@gallory.app</a></p>
     </div>
-    <div class="order2">
-      <div class="cover" aria-hidden="true">
-        <div class="photo"></div><div class="scrim"></div>
-        <div class="mast">
-          <div class="rule"></div><div class="rule thin"></div>
-          <div class="masttxt"><span>GALLORY · TRAVEL</span><span>VOL. 2026</span></div>
-        </div>
-        <div class="cap">
-          <div class="k">GALLORY TRAVEL · 2026</div>
-          <h3 data-t="coverttl">여름의 바다</h3>
-          <p data-t="covercap">3일 · 7장소 · 너와</p>
-        </div>
-      </div>
+    <div class="fan" aria-hidden="true">
+      <img class="c1" src="img/cover_food.jpg" alt="">
+      <img class="c2" src="img/cover_travel.jpg" alt="">
+      <div class="tape"></div>
+      <img class="c3" src="img/cover_tale.jpg" alt="">
     </div>
   </section>
 
-  <section class="values">
-    <div class="val"><div class="ic">🔒</div><h2 data-t="v1t">100% 내 폰 안</h2><p data-t="v1p">계정도, 서버 업로드도 없습니다. 당신의 사진과 기록은 기기 밖으로 나가지 않아요.</p></div>
-    <div class="val"><div class="ic">📖</div><h2 data-t="v2t">저절로 매거진</h2><p data-t="v2p">비슷한 시기·장소의 사진이 여행으로, 한 해가 한 편의 이야기로 자동 편집됩니다.</p></div>
-    <div class="val"><div class="ic">✨</div><h2 data-t="v3t">공유하고 싶은 결과물</h2><p data-t="v3p">발행된 잡지 같은 카드와 영상으로 — 인스타·틱톡에 한 장씩 넘겨 보는 낱장으로.</p></div>
+  <section>
+    <div class="kicker" data-t="k1">HOW IT WORKS</div>
+    <h2 class="t" data-t="h2a">세 걸음이면 한 권.</h2>
+    <hr class="rule">
+    <div class="steps">
+      <div class="step"><div class="no">01</div><h3 data-t="s1t">표지 고르고, 사진 한 장</h3><p data-t="s1p">주간지·여행·그림책·패션·인생·맛집 — 잡지 가판대에서 마음에 드는 표지를 고르고 사진 한 장을 넣으면 끝. 제호·문구·재료는 손으로 바꿉니다.</p></div>
+      <div class="step"><div class="no">02</div><h3 data-t="s2t">더 고르면, 속지</h3><p data-t="s2p">사진을 여러 장 고르면 첫 장은 표지, 나머지는 스크랩처럼 속지에 깔립니다. 인화지 테두리, 스티커, 손글씨, 테이프까지 마음껏.</p></div>
+      <div class="step"><div class="no">03</div><h3 data-t="s3t">지도와 경로, 그리고 내보내기</h3><p data-t="s3p">맛집엔 핀을, 여행엔 손으로 그린 경로를. 완성한 한 권은 인스타 피드·스토리 크기 이미지나 PDF로 내보냅니다.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="kicker" data-t="k2">NEWSSTAND</div>
+    <h2 class="t" data-t="h2b">가판대의 표지들.</h2>
+    <p class="sub" data-t="subb">보는 순간 "이건 이렇게 만들어야겠다"가 떠오르도록 — 장르마다 다른 문법의 표지를 준비했습니다.</p>
+    <div class="grid">
+      <img src="img/cover_weekly.jpg" alt=""><img src="img/cover_travel.jpg" alt=""><img src="img/cover_alley.jpg" alt="">
+      <img src="img/cover_tale.jpg" alt=""><img src="img/cover_noir.jpg" alt=""><img src="img/cover_memoir.jpg" alt="">
+      <img src="img/cover_iron.jpg" alt=""><img src="img/cover_letter.jpg" alt=""><img src="img/cover_food.jpg" alt="">
+    </div>
+    <div class="caps">
+      <span data-t="c1">주간지</span><span data-t="c2">여행</span><span data-t="c3">도시 탐험</span><span data-t="c4">그림책</span><span data-t="c5">패션</span><span data-t="c6">인생</span><span data-t="c7">피트니스</span><span data-t="c8">일상</span><span data-t="c9">맛집</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="kicker" data-t="k3">WHY GALLORY</div>
+    <h2 class="t" data-t="h2c">직접 만들어서, 내 것.</h2>
+    <hr class="rule">
+    <div class="values">
+      <div class="val"><div class="g">I</div><h3 data-t="v1t">자동이 아니라 내 손으로</h3><p data-t="v1p">사진 정리, 얼굴 앨범, 자동 회상 — 그건 폰이 이미 합니다. Gallory는 그 다음, 남에게 보여줄 한 권을 당신이 만들게 합니다.</p></div>
+      <div class="val"><div class="g">II</div><h3 data-t="v2t">100% 내 폰 안에서</h3><p data-t="v2p">계정도, 서버 업로드도, 광고도 없습니다. 사진은 단 한 장도 폰 밖으로 나가지 않습니다. 지도 그림을 받아오는 통신뿐입니다.</p></div>
+      <div class="val"><div class="g">III</div><h3 data-t="v3t">무료로 끝까지</h3><p data-t="v3p">표지 한 장은 무료로 만들고, 내보내고, 나눌 수 있습니다. 속지가 있는 한 권과 프리미엄 재료만 Pro입니다.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="kicker" data-t="k4">PRICING</div>
+    <h2 class="t" data-t="h2d">표지는 무료, 한 권은 Pro.</h2>
+    <hr class="rule">
+    <div class="price">
+      <div class="pcard">
+        <h3 data-t="fr">무료</h3>
+        <div class="p" data-t="frp">₩0</div>
+        <ul>
+          <li data-t="fr1">표지 12종 전부 · 필름 · 필기체 글꼴</li>
+          <li data-t="fr2">스티커·테이프·손글씨 기본 재료</li>
+          <li data-t="fr3">이미지·PDF 내보내기 (작은 서명 포함)</li>
+          <li data-t="fr4">속지는 마음껏 꾸며 보기</li>
+        </ul>
+      </div>
+      <div class="pcard pro">
+        <div class="pill">PRO</div>
+        <h3 data-t="pr">Pro</h3>
+        <div class="p" data-t="prp">₩3,900<small data-t="prm"> / 월</small></div>
+        <div style="opacity:.8; font-size:14px" data-t="pry">연 ₩19,900 · 평생 ₩24,900</div>
+        <ul>
+          <li data-t="pr1">속지 있는 한 권 저장·내보내기</li>
+          <li data-t="pr2">Pro 표지 7종 · 프리미엄 액자 · 클래식 종이와 테이프</li>
+          <li data-t="pr3">서명 없이 깨끗하게, 더 큰 해상도로</li>
+        </ul>
+      </div>
+      <p class="pnote" data-t="pn">시즌·이벤트 재료 팩은 ₩990에 따로 살 수 있습니다. 가격은 나라별 스토어 기준으로 표시됩니다.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="kicker" data-t="k5">FAQ</div>
+    <h2 class="t" data-t="h2e">자주 묻는 것.</h2>
+    <hr class="rule">
+    <div class="faq">
+      <details><summary data-t="q1">사진이 서버로 올라가나요?</summary><p data-t="a1">아니요. 계정도 서버도 없습니다. 만드는 일도, 얼굴로 찾는 일도 전부 폰 안에서 계산합니다. 지도를 열 때 지도 그림을 받아오는 통신만 있습니다.</p></details>
+      <details><summary data-t="q2">자동으로 앨범을 만들어 주나요?</summary><p data-t="a2">아니요. 그건 구글 포토와 애플 사진이 이미 잘 합니다. Gallory는 당신이 고른 사진으로 당신이 직접 한 권을 만드는 앱입니다. 초안은 깔아 드리지만 배치·문구·재료는 당신 손으로.</p></details>
+      <details><summary data-t="q3">무료로 어디까지 되나요?</summary><p data-t="a3">표지 한 장은 끝까지 무료입니다. 만들고, 내보내고, 나누세요. 속지가 있는 한 권을 저장·내보낼 때만 Pro가 필요합니다. 꾸며 보는 건 언제나 무료입니다.</p></details>
+      <details><summary data-t="q4">어떤 언어를 지원하나요?</summary><p data-t="a4">한국어·영어·일본어·스페인어·포르투갈어. 한글 명조와 일본어 명조 제호 글꼴이 들어 있습니다.</p></details>
+    </div>
   </section>
 
   <footer>
@@ -128,24 +238,133 @@
 
 <script>
   var T={
-    ko:{eyebrow:"100% 당신의 기기 안에서",h1:"당신의 사진이,<br>한 권의 잡지가 됩니다.",lead:"여행·인물·맛집·한 해가 저절로 아름다운 매거진과 영상으로 편집됩니다. 사진은 클라우드로 보내지 않습니다 — 전부 당신의 폰 안에서.",dl:"곧 출시",soon:'출시 소식과 문의: <a href="mailto:support@gallory.app">support@gallory.app</a>',coverttl:"여름의 바다",covercap:"3일 · 7장소 · 너와",v1t:"100% 내 폰 안",v1p:"계정도, 서버 업로드도 없습니다. 당신의 사진과 기록은 기기 밖으로 나가지 않아요.",v2t:"저절로 매거진",v2p:"비슷한 시기·장소의 사진이 여행으로, 한 해가 한 편의 이야기로 자동 편집됩니다.",v3t:"공유하고 싶은 결과물",v3p:"발행된 잡지 같은 카드와 영상으로 — 인스타·틱톡에 한 장씩 넘겨 보는 낱장으로.",fprivacy:"개인정보처리방침",fterms:"이용약관"},
-    en:{eyebrow:"100% on your device",h1:"Your photos become<br>a magazine.",lead:"Trips, people, food and your whole year are edited into beautiful magazines and videos — automatically. Your photos never go to the cloud; everything stays on your phone.",dl:"Coming soon",soon:'News & contact: <a href="mailto:support@gallory.app">support@gallory.app</a>',coverttl:"By the Sea",covercap:"3 days · 7 places · with you",v1t:"100% on your phone",v1p:"No account, no server uploads. Your photos and records never leave your device.",v2t:"Magazines, automatically",v2p:"Photos from the same time and place become a trip; a whole year becomes one story.",v3t:"Worth sharing",v3p:"Published-magazine cards and videos — swipeable, one page at a time for Instagram and TikTok.",fprivacy:"Privacy Policy",fterms:"Terms"},
-    ja:{eyebrow:"100% あなたの端末の中で",h1:"写真が、<br>一冊の雑誌になる。",lead:"旅・人物・グルメ・一年が、自動で美しい雑誌と動画に編集されます。写真はクラウドへ送りません — すべてあなたのスマホの中で。",dl:"近日公開",soon:'お知らせ・お問い合わせ: <a href="mailto:support@gallory.app">support@gallory.app</a>',coverttl:"夏の海",covercap:"3日 · 7か所 · あなたと",v1t:"100% 端末の中",v1p:"アカウントもサーバー送信もありません。写真と記録が端末の外に出ることはありません。",v2t:"自動で雑誌に",v2p:"近い時期・場所の写真が旅に、一年が一つの物語に自動編集されます。",v3t:"共有したくなる仕上がり",v3p:"発行された雑誌のようなカードと動画 — Instagram・TikTokへ一枚ずつめくる形で。",fprivacy:"プライバシーポリシー",fterms:"利用規約"}
+    ko:{title:"Gallory — 내 사진으로 직접 만드는 매거진"},
+    en:{
+      title:"Gallory — The magazine you make from your own photos",
+      eyebrow:"Your own magazine, starting from one photo",
+      h1:"From my photos,<br>a magazine I make myself.",
+      lead:"Pick a photo and it becomes the cover; pick more and the inside pages are laid out. Favorite restaurants become a map, trips become a route you draw by hand. Not an app that makes it for you — an app where you make it.",
+      dl:"Coming soon", dl2:"Coming soon", soon:"Launch news and questions: <a href='mailto:support@gallory.app'>support@gallory.app</a>",
+      k1:"HOW IT WORKS", h2a:"Three steps to a book.",
+      s1t:"Pick a cover, drop in one photo", s1p:"Weekly, travel, picture book, fashion, life, food — choose a cover from the newsstand and add one photo. Masthead, lines and materials are yours to change.",
+      s2t:"Pick more, get pages", s2p:"Pick several photos: the first is the cover, the rest are laid out like a scrapbook. Print borders, stickers, handwriting, tape — as you like.",
+      s3t:"Maps, routes, export", s3p:"Pins for restaurants, a hand-drawn route for trips. Export the finished book as Instagram-sized images or a PDF.",
+      k2:"NEWSSTAND", h2b:"Covers on the newsstand.", subb:"Each genre has its own grammar — so the moment you see one, you know what you would make.",
+      c1:"Weekly", c2:"Travel", c3:"City", c4:"Picture book", c5:"Fashion", c6:"Life", c7:"Fitness", c8:"Everyday", c9:"Food",
+      k3:"WHY GALLORY", h2c:"Made by you, so it is yours.",
+      v1t:"Not automatic — by hand", v1p:"Sorting photos, face albums, memories — your phone already does that. Gallory is what comes next: the one book you make to show someone.",
+      v2t:"100% on your phone", v2p:"No account, no uploads, no ads. Not a single photo leaves your phone. The only traffic is fetching map imagery.",
+      v3t:"Free all the way", v3p:"A single cover is free to make, export and share. Only books with inside pages and premium materials are Pro.",
+      k4:"PRICING", h2d:"Covers are free. Books are Pro.",
+      fr:"Free", frp:"$0", fr1:"All 12 covers · films · script fonts", fr2:"Basic stickers, tape and handwriting", fr3:"Image and PDF export (with a small mark)", fr4:"Decorate inside pages freely",
+      pr:"Pro", prp:"$2.99<small> / month</small>", prm:" / month", pry:"$14.99 / year · $19.99 lifetime",
+      pr1:"Save and export books with inside pages", pr2:"7 Pro covers · premium frames · classic papers and tapes", pr3:"No mark, higher resolution",
+      pn:"Season and event packs are sold separately for $0.99. Prices are shown in your store's currency.",
+      k5:"FAQ", h2e:"Questions people ask.",
+      q1:"Do my photos go to a server?", a1:"No. There is no account and no server. Making a book and finding faces are computed on your phone. The only network traffic fetches map imagery when you open a map.",
+      q2:"Does it make albums automatically?", a2:"No. Google Photos and Apple Photos already do that well. Gallory is where you make one book from photos you chose. We lay out a draft; the layout, words and materials are yours.",
+      q3:"How far does free go?", a3:"A single cover is free all the way — make it, export it, share it. Pro is needed only to save and export a book with inside pages. Decorating is always free.",
+      q4:"Which languages?", a4:"Korean, English, Japanese, Spanish and Portuguese, with Korean and Japanese serif masthead fonts included.",
+      fprivacy:"Privacy", fterms:"Terms"
+    },
+    ja:{
+      title:"Gallory — 自分の写真で、自分でつくるマガジン",
+      eyebrow:"写真一枚からはじまる、わたしの雑誌",
+      h1:"わたしの写真で、<br>わたしがつくるマガジン。",
+      lead:"写真を選ぶと表紙になり、もっと選ぶと中ページが並びます。好きなお店は地図に、旅は手で描いた道のりに、一冊へ。自動でつくるアプリではなく、あなたがつくるアプリです。",
+      dl:"近日公開", dl2:"近日公開", soon:"公開のお知らせ・お問い合わせ：<a href='mailto:support@gallory.app'>support@gallory.app</a>",
+      k1:"HOW IT WORKS", h2a:"三歩で一冊。",
+      s1t:"表紙を選んで、写真を一枚", s1p:"週刊誌・旅・絵本・ファッション・人生・グルメ — 売り場から好きな表紙を選び、写真を一枚。誌名・文・素材は手で変えられます。",
+      s2t:"もっと選ぶと、中ページ", s2p:"複数選ぶと最初の一枚が表紙、残りはスクラップのように中ページへ。印画紙のふち、ステッカー、手書き、テープも自由に。",
+      s3t:"地図と道のり、そして書き出し", s3p:"お店にはピンを、旅には手描きの道のりを。仕上げた一冊はInstagramサイズの画像やPDFで書き出せます。",
+      k2:"NEWSSTAND", h2b:"売り場の表紙たち。", subb:"見た瞬間「これはこう作ろう」が浮かぶように — ジャンルごとに文法の違う表紙を用意しました。",
+      c1:"週刊誌", c2:"旅", c3:"街", c4:"絵本", c5:"ファッション", c6:"人生", c7:"フィットネス", c8:"日常", c9:"グルメ",
+      k3:"WHY GALLORY", h2c:"自分でつくるから、自分のもの。",
+      v1t:"自動ではなく、手で", v1p:"写真の整理、顔のアルバム、思い出の振り返り — それは端末がもうやっています。Galloryはその次、誰かに見せる一冊をあなたがつくる場所です。",
+      v2t:"100% 端末の中で", v2p:"アカウントも、アップロードも、広告もありません。写真は一枚も端末の外に出ません。通信は地図画像の取得だけです。",
+      v3t:"最後まで無料", v3p:"表紙一枚は無料でつくり、書き出し、共有できます。中ページのある一冊とプレミアム素材だけがProです。",
+      k4:"PRICING", h2d:"表紙は無料、一冊はPro。",
+      fr:"無料", frp:"¥0", fr1:"表紙12種すべて・フィルム・手書きフォント", fr2:"ステッカー・テープ・手書きの基本素材", fr3:"画像・PDF書き出し（小さな署名つき）", fr4:"中ページを自由に飾ってみる",
+      pr:"Pro", prp:"¥499<small> / 月</small>", prm:" / 月", pry:"年 ¥2,400 · 買い切り ¥3,000",
+      pr1:"中ページのある一冊の保存・書き出し", pr2:"Pro表紙7種・プレミアム額縁・クラシック紙とテープ", pr3:"署名なし、より高い解像度で",
+      pn:"季節・イベント素材パックは¥110で別売りです。価格はお住まいの国のストア基準で表示されます。",
+      k5:"FAQ", h2e:"よくある質問。",
+      q1:"写真はサーバーに送られますか？", a1:"いいえ。アカウントもサーバーもありません。一冊をつくることも顔でさがすことも、すべて端末内で計算します。通信は地図を開くときに地図画像を受け取るだけです。",
+      q2:"自動でアルバムをつくってくれますか？", a2:"いいえ。それはGoogleフォトやAppleの写真がすでに上手にやっています。Galloryは、あなたが選んだ写真であなた自身が一冊をつくるアプリです。下書きは並べますが、配置・文・素材はあなたの手で。",
+      q3:"無料でどこまでできますか？", a3:"表紙一枚は最後まで無料です。つくって、書き出して、共有してください。中ページのある一冊を保存・書き出すときだけProが必要です。飾ってみるのはいつでも無料です。",
+      q4:"対応言語は？", a4:"韓国語・英語・日本語・スペイン語・ポルトガル語。韓国語と日本語の明朝体の誌名フォントを収録しています。",
+      fprivacy:"プライバシーポリシー", fterms:"利用規約"
+    },
+    es:{
+      title:"Gallory — La revista que haces con tus propias fotos",
+      eyebrow:"Tu propia revista, a partir de una foto",
+      h1:"Con mis fotos,<br>una revista que hago yo.",
+      lead:"Elige una foto y será la portada; elige más y se montan las páginas. Tus restaurantes favoritos se vuelven un mapa, los viajes una ruta que dibujas a mano. No es una app que lo hace por ti: es una app donde lo haces tú.",
+      dl:"Muy pronto", dl2:"Muy pronto", soon:"Novedades y preguntas: <a href='mailto:support@gallory.app'>support@gallory.app</a>",
+      k1:"CÓMO FUNCIONA", h2a:"Tres pasos y un libro.",
+      s1t:"Elige una portada, pon una foto", s1p:"Semanal, viaje, cuento, moda, vida, comida: elige una portada del quiosco y añade una foto. La cabecera, las líneas y los materiales los cambias tú.",
+      s2t:"Elige más, y tienes páginas", s2p:"Elige varias fotos: la primera es la portada y el resto se coloca como un álbum de recortes. Bordes de foto, pegatinas, letra a mano, cinta, como quieras.",
+      s3t:"Mapas, rutas y exportar", s3p:"Chinchetas para restaurantes, una ruta dibujada a mano para los viajes. Exporta el libro terminado como imágenes para Instagram o en PDF.",
+      k2:"QUIOSCO", h2b:"Portadas del quiosco.", subb:"Cada género tiene su propia gramática, para que al verla ya sepas qué harías.",
+      c1:"Semanal", c2:"Viaje", c3:"Ciudad", c4:"Cuento", c5:"Moda", c6:"Vida", c7:"Fitness", c8:"Diario", c9:"Comida",
+      k3:"POR QUÉ GALLORY", h2c:"Hecho por ti, así que es tuyo.",
+      v1t:"No automático: a mano", v1p:"Ordenar fotos, álbumes de caras, recuerdos: tu teléfono ya lo hace. Gallory es lo siguiente: el libro que haces para enseñárselo a alguien.",
+      v2t:"100% en tu teléfono", v2p:"Sin cuenta, sin subidas, sin anuncios. Ni una sola foto sale del teléfono. El único tráfico es descargar el mapa.",
+      v3t:"Gratis hasta el final", v3p:"Una portada es gratis: hacerla, exportarla y compartirla. Solo los libros con páginas interiores y los materiales premium son Pro.",
+      k4:"PRECIOS", h2d:"Las portadas son gratis. Los libros son Pro.",
+      fr:"Gratis", frp:"$0", fr1:"Las 12 portadas · películas · fuentes manuscritas", fr2:"Pegatinas, cinta y letra a mano básicas", fr3:"Exportar imagen y PDF (con una marca pequeña)", fr4:"Decorar las páginas libremente",
+      pr:"Pro", prp:"$2.99<small> / mes</small>", prm:" / mes", pry:"$14.99 / año · $19.99 para siempre",
+      pr1:"Guardar y exportar libros con páginas", pr2:"7 portadas Pro · marcos premium · papeles y cintas clásicos", pr3:"Sin marca y a mayor resolución",
+      pn:"Los packs de temporada y eventos se venden aparte por $0.99. Los precios se muestran en la moneda de tu tienda.",
+      k5:"FAQ", h2e:"Lo que suele preguntarse.",
+      q1:"¿Mis fotos van a un servidor?", a1:"No. No hay cuenta ni servidor. Hacer un libro y buscar caras se calcula en tu teléfono. El único tráfico descarga el mapa cuando lo abres.",
+      q2:"¿Hace álbumes automáticamente?", a2:"No. Google Fotos y Fotos de Apple ya lo hacen bien. En Gallory haces tú un libro con las fotos que elegiste. Montamos un borrador; la colocación, los textos y los materiales son tuyos.",
+      q3:"¿Hasta dónde llega lo gratis?", a3:"Una portada es gratis hasta el final: hazla, expórtala, compártela. Pro solo hace falta para guardar y exportar un libro con páginas. Decorar siempre es gratis.",
+      q4:"¿Qué idiomas?", a4:"Coreano, inglés, japonés, español y portugués, con fuentes serif coreanas y japonesas para la cabecera.",
+      fprivacy:"Privacidad", fterms:"Términos"
+    },
+    pt:{
+      title:"Gallory — A revista que você faz com as suas fotos",
+      eyebrow:"A sua própria revista, a partir de uma foto",
+      h1:"Com as minhas fotos,<br>uma revista que eu mesmo faço.",
+      lead:"Escolha uma foto e ela vira a capa; escolha mais e as páginas são montadas. Seus restaurantes favoritos viram um mapa, as viagens uma rota desenhada à mão. Não é um app que faz por você: é um app onde você faz.",
+      dl:"Em breve", dl2:"Em breve", soon:"Novidades e dúvidas: <a href='mailto:support@gallory.app'>support@gallory.app</a>",
+      k1:"COMO FUNCIONA", h2a:"Três passos e um livro.",
+      s1t:"Escolha uma capa, coloque uma foto", s1p:"Semanal, viagem, livro ilustrado, moda, vida, comida: escolha uma capa na banca e adicione uma foto. Título, linhas e materiais você muda à mão.",
+      s2t:"Escolha mais, ganhe páginas", s2p:"Escolha várias fotos: a primeira é a capa e as outras são dispostas como um scrapbook. Bordas de foto, adesivos, letra à mão, fita, como quiser.",
+      s3t:"Mapas, rotas e exportar", s3p:"Pinos para restaurantes, uma rota desenhada à mão para viagens. Exporte o livro pronto como imagens para o Instagram ou em PDF.",
+      k2:"BANCA", h2b:"As capas da banca.", subb:"Cada gênero tem a própria gramática, para que ao ver você já saiba o que faria.",
+      c1:"Semanal", c2:"Viagem", c3:"Cidade", c4:"Ilustrado", c5:"Moda", c6:"Vida", c7:"Fitness", c8:"Dia a dia", c9:"Comida",
+      k3:"POR QUE GALLORY", h2c:"Feito por você, então é seu.",
+      v1t:"Não automático: à mão", v1p:"Organizar fotos, álbuns de rostos, lembranças: o seu celular já faz isso. O Gallory é o próximo passo: o livro que você faz para mostrar a alguém.",
+      v2t:"100% no seu celular", v2p:"Sem conta, sem uploads, sem anúncios. Nenhuma foto sai do celular. O único tráfego é baixar o mapa.",
+      v3t:"Grátis até o fim", v3p:"Uma capa é grátis: fazer, exportar e compartilhar. Só os livros com páginas internas e os materiais premium são Pro.",
+      k4:"PREÇOS", h2d:"Capas são grátis. Livros são Pro.",
+      fr:"Grátis", frp:"$0", fr1:"Todas as 12 capas · filmes · fontes manuscritas", fr2:"Adesivos, fita e letra à mão básicos", fr3:"Exportar imagem e PDF (com uma marca pequena)", fr4:"Decorar as páginas livremente",
+      pr:"Pro", prp:"$2.99<small> / mês</small>", prm:" / mês", pry:"$14.99 / ano · $19.99 vitalício",
+      pr1:"Salvar e exportar livros com páginas", pr2:"7 capas Pro · molduras premium · papéis e fitas clássicos", pr3:"Sem marca e em resolução maior",
+      pn:"Pacotes de temporada e eventos são vendidos à parte por $0.99. Os preços aparecem na moeda da sua loja.",
+      k5:"FAQ", h2e:"O que costumam perguntar.",
+      q1:"Minhas fotos vão para um servidor?", a1:"Não. Não há conta nem servidor. Fazer um livro e buscar rostos são calculados no seu celular. O único tráfego baixa o mapa quando você o abre.",
+      q2:"Ele faz álbuns automaticamente?", a2:"Não. O Google Fotos e o Fotos da Apple já fazem isso bem. No Gallory, você faz um livro com as fotos que escolheu. Montamos um rascunho; a disposição, os textos e os materiais são seus.",
+      q3:"Até onde vai o grátis?", a3:"Uma capa é grátis até o fim: faça, exporte, compartilhe. O Pro só é necessário para salvar e exportar um livro com páginas. Decorar é sempre grátis.",
+      q4:"Quais idiomas?", a4:"Coreano, inglês, japonês, espanhol e português, com fontes serifadas coreanas e japonesas para o título.",
+      fprivacy:"Privacidade", fterms:"Termos"
+    }
   };
+  // 한국어 원문을 사전에 담아 두어 다시 돌아올 수 있게.
+  T.ko = {};
+  document.querySelectorAll('[data-t]').forEach(function(el){ T.ko[el.dataset.t]=el.innerHTML; });
+  T.ko.title = document.title;
   var btns=document.querySelectorAll('.lang button');
-  btns.forEach(function(b){
-    b.addEventListener('click',function(){
-      var lang=b.dataset.lang, dict=T[lang];
-      btns.forEach(function(x){x.setAttribute('aria-selected', x===b?'true':'false')});
-      document.querySelectorAll('[data-t]').forEach(function(el){
-        var k=el.dataset.t; if(dict[k]!=null) el.innerHTML=dict[k];
-      });
-      document.documentElement.lang=lang;
-      document.title = lang==='ko' ? 'Gallory — 당신의 갤러리, 당신의 이야기'
-        : lang==='ja' ? 'Gallory — あなたのギャラリー、あなたのストーリー'
-        : 'Gallory — Your gallery, your story';
-    });
-  });
+  function pick(lang){
+    var dict=T[lang]; if(!dict) return;
+    btns.forEach(function(x){x.setAttribute('aria-selected', x.dataset.lang===lang?'true':'false')});
+    document.querySelectorAll('[data-t]').forEach(function(el){ var k=el.dataset.t; if(dict[k]!=null) el.innerHTML=dict[k]; });
+    document.documentElement.lang=lang; document.title=dict.title;
+  }
+  btns.forEach(function(b){ b.addEventListener('click',function(){ pick(b.dataset.lang); }); });
+  var nav=(navigator.language||'ko').slice(0,2); if(T[nav] && nav!=='ko') pick(nav);
 </script>
 </body>
 </html>
