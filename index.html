@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gallory — The magazine you make from your own photos</title>
-<meta name="description" content="Pick a photo and it becomes the cover; pick more and the inside pages are laid out. Food maps and travel routes in one book. 100% on your phone, no ads.">
+<meta name="description" content="Pick a photo and it becomes the cover; pick more and the inside pages are laid out — and now it flips through as a video. 100% on your phone, no ads.">
 <meta property="og:title" content="Gallory — The magazine you make from your own photos">
-<meta property="og:description" content="Pick a photo and it becomes the cover; pick more and the inside pages are laid out. Food maps and travel routes in one book. 100% on your phone, no ads.">
+<meta property="og:description" content="Pick a photo and it becomes the cover; pick more and the inside pages are laid out — and now it flips through as a video. 100% on your phone, no ads.">
 <meta property="og:image" content="https://gallory.app/img/new/monthly_en.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -133,9 +133,63 @@
     .price{grid-template-columns:1fr}
     section{padding:40px 0}
   }
+  /* ── 1.2 (2026-10) 첫 화면 = 앱 첫 화면과 같은 결: 먹색 + 흐르는 표지 벽 + 금박 제호 ── */
+  .top{position:relative; background:#120e0c; color:#f6efe5; overflow:hidden}
+  .top .wrap{position:relative; z-index:2}
+  .top nav .brand{color:#f6efe5}
+  .top .lang button{background:transparent; color:#f6efe5b3; border-color:#f6efe533}
+  .top .lang button[aria-selected="true"]{background:#e7c677; color:#120e0c; border-color:#e7c677}
+  .wall{position:absolute; inset:-12% -6%; display:grid; grid-template-columns:repeat(9,1fr); gap:14px; transform:rotate(-8deg); opacity:.3; animation:drift 90s linear infinite}
+  .wall img{width:100%; aspect-ratio:9/16; object-fit:cover; border-radius:3px; box-shadow:0 10px 30px #000a}
+  @keyframes drift{from{transform:rotate(-8deg) translateY(0)} to{transform:rotate(-8deg) translateY(-12%)}}
+  @media (prefers-reduced-motion:reduce){.wall{animation:none}}
+  .top:after{content:""; position:absolute; inset:0; z-index:1; background:radial-gradient(75% 85% at 30% 45%,#120e0cf0 30%,#120e0ca8 70%,#120e0c66)}
+  .hero2{display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:center; padding:18px 0 64px}
+  .hero2>*{min-width:0}
+  body{overflow-x:hidden}
+  .chip{display:inline-flex; gap:8px; align-items:center; border:1px solid #c9a24a88; border-radius:999px; padding:5px 13px 5px 6px; font-size:12.5px; color:#e7c677; margin-bottom:18px}
+  .chip i{font-style:normal; background:linear-gradient(100deg,#b88a33,#f3d894,#c79a3e); color:#2a1e10; border-radius:999px; padding:2px 9px; font-weight:800; font-size:11px; letter-spacing:.08em}
+  .kick{font-family:"Libre Bodoni",serif; letter-spacing:.32em; font-size:12px; color:#e7c677; text-transform:uppercase}
+  .mast{font-family:"Libre Bodoni",serif; font-weight:700; white-space:nowrap; font-size:clamp(54px,7.2vw,100px); line-height:.9; margin:8px 0 8px; letter-spacing:.02em; color:#f6efe5}
+  .vol{display:flex; align-items:center; gap:14px; color:#e7c677; font-family:"Libre Bodoni",serif; letter-spacing:.25em; font-size:11.5px}
+  .vol:before,.vol:after{content:""; flex:1; height:1px; background:linear-gradient(90deg,transparent,#c9a24a,transparent)}
+  .top h1{font-family:"Libre Bodoni","Noto Serif KR","Noto Serif JP",Georgia,serif; font-weight:500; font-size:clamp(30px,3.5vw,46px); line-height:1.25; margin:26px 0 12px; color:#f6efe5}
+  .top h1 b{font-weight:700; background:linear-gradient(100deg,#b88a33,#f3d894,#c79a3e); -webkit-background-clip:text; background-clip:text; color:transparent}
+  .top .lead{color:#f6efe5c7; text-align:left; margin:0 0 24px}
+  .top .stores{justify-content:flex-start}
+  .top .soon{color:#f6efe599}
+  .top .soon a{color:#e7c677}
+  .phone{width:min(320px,74vw); margin:auto; border-radius:44px; padding:11px; background:linear-gradient(145deg,#3a302a,#0d0a09); box-shadow:0 40px 90px #000c,0 0 0 1px #c9a24a55,0 0 80px #e7c67718}
+  .phone img,.phone video{width:100%; display:block; border-radius:34px; aspect-ratio:9/20; object-fit:cover; background:#1b1613}
+  /* 1.2 기능 — 진짜 앱에서 나온 그림·영상 */
+  .feat{display:grid; grid-template-columns:1fr 1fr; gap:22px; align-items:stretch}
+  .f{background:var(--card); border:1px solid var(--line); border-radius:20px; overflow:hidden; display:flex; flex-direction:column}
+  .f .media{background:#120e0c; display:flex; align-items:center; justify-content:center; min-height:300px}
+  .f .media img{width:100%; height:100%; object-fit:cover; display:block}
+  .f .media .phone{width:200px; margin:26px auto; padding:8px; border-radius:30px}
+  .f .media .phone video{aspect-ratio:9/16; border-radius:24px}
+  .f .tx{padding:20px 22px 24px}
+  .f h3{margin:0 0 8px; font-size:18px}
+  .f h3 small{font-size:11px; letter-spacing:.12em; color:var(--gold); font-weight:800; margin-left:6px; vertical-align:2px}
+  .f p{margin:0; color:var(--ink2); font-size:14.5px}
+  .f.wide{grid-column:1/-1}
+  .f.wide .media{min-height:0}
+  .f.wide .media img{height:auto}
+  .f .note{font-size:12.5px; color:var(--muted); margin-top:8px}
+  .try{margin:22px 0 0; text-align:center; color:var(--ink2); font-size:15px}
+  @media (max-width:860px){
+    .hero2{grid-template-columns:1fr; gap:26px; padding:10px 0 46px}
+    .wall{grid-template-columns:repeat(5,1fr)}
+    .mast{font-size:clamp(40px,12.5vw,80px)}
+    .phone{width:230px}
+    .feat{grid-template-columns:1fr}
+    .f .media{min-height:220px}
+  }
 </style>
 </head>
 <body>
+<header class="top">
+  <div class="wall" aria-hidden="true"><img src="img/cover_alley.jpg" alt="" loading="lazy"><img data-new="monthly" src="img/new/monthly_en.jpg" alt="" loading="lazy"><img src="img/cover_iron.jpg" alt="" loading="lazy"><img src="img/cover_letter.jpg" alt="" loading="lazy"><img src="img/cover_memoir.jpg" alt="" loading="lazy"><img data-new="atelier" src="img/new/atelier_en.jpg" alt="" loading="lazy"><img src="img/cover_tale.jpg" alt="" loading="lazy"><img src="img/cover_travel.jpg" alt="" loading="lazy"><img src="img/cover_weekly.jpg" alt="" loading="lazy"><img data-new="voyage" src="img/new/voyage_en.jpg" alt="" loading="lazy"><img src="img/cover_food.jpg" alt="" loading="lazy"><img src="img/cover_iron.jpg" alt="" loading="lazy"><img src="img/cover_letter.jpg" alt="" loading="lazy"><img data-new="statement" src="img/new/statement_en.jpg" alt="" loading="lazy"><img src="img/cover_noir.jpg" alt="" loading="lazy"><img src="img/cover_tale.jpg" alt="" loading="lazy"><img src="img/cover_travel.jpg" alt="" loading="lazy"><img data-new="monthly" src="img/new/monthly_en.jpg" alt="" loading="lazy"><img src="img/cover_alley.jpg" alt="" loading="lazy"><img src="img/cover_food.jpg" alt="" loading="lazy"><img src="img/cover_iron.jpg" alt="" loading="lazy"><img data-new="atelier" src="img/new/atelier_en.jpg" alt="" loading="lazy"><img src="img/cover_memoir.jpg" alt="" loading="lazy"><img src="img/cover_noir.jpg" alt="" loading="lazy"><img src="img/cover_tale.jpg" alt="" loading="lazy"><img data-new="voyage" src="img/new/voyage_en.jpg" alt="" loading="lazy"><img src="img/cover_weekly.jpg" alt="" loading="lazy"><img src="img/cover_alley.jpg" alt="" loading="lazy"><img src="img/cover_food.jpg" alt="" loading="lazy"><img data-new="statement" src="img/new/statement_en.jpg" alt="" loading="lazy"><img src="img/cover_letter.jpg" alt="" loading="lazy"><img src="img/cover_memoir.jpg" alt="" loading="lazy"><img src="img/cover_noir.jpg" alt="" loading="lazy"><img data-new="monthly" src="img/new/monthly_en.jpg" alt="" loading="lazy"><img src="img/cover_travel.jpg" alt="" loading="lazy"><img src="img/cover_weekly.jpg" alt="" loading="lazy"></div>
 <div class="wrap">
   <nav>
     <a class="brand" href="./">Gallory</a>
@@ -147,44 +201,54 @@
       <button role="tab" data-lang="pt" aria-selected="false">PT</button>
     </div>
   </nav>
-
-  <section class="hero">
-    <div class="new"><i>NEW 1.1</i><span data-t="new11">Make it feel like a real magazine — new Pro covers, magazine type, foil</span></div>
-    <h1 data-t="h1">From my photos,<br>a magazine I make myself.</h1>
-    <p class="lead" data-t="lead">Pick a photo and it becomes the cover; pick more and the inside pages are laid out. Favorite restaurants become a map, trips become a route you draw by hand. Not an app that makes it for you — an app where you make it.</p>
+  <section class="hero2">
+    <div>
+      <div class="chip"><i>NEW 1.2</i><span data-t="new12">Flip-through video · Moods · Cut from a photo</span></div>
+      <div class="kick">The Making Issue</div>
+      <div class="mast">GALLORY</div>
+      <div class="vol">VOL. 2026 · Nº 1.2</div>
+      <h1 data-t="h1">Your photos<br><b>become a magazine</b></h1>
+      <p class="lead" data-t="lead">Pick a cover, drop in your photos, decorate page after page — a magazine fit for a newsstand. Now it can flip through as a video, too.</p>
     <div class="stores">
       <a id="appStore" href="https://apps.apple.com/app/id6813446942" target="_blank" rel="noopener"><img id="appBadge" class="ab" src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store"></a>
       <a id="playStore" href="https://play.google.com/store/apps/details?id=com.gallory.app&amp;hl=en" target="_blank" rel="noopener"><img id="playBadge" class="gb" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a>
     </div>
     <p class="soon" data-t="soon">Questions: <a href='mailto:support@gallory.app'>support@gallory.app</a></p>
-    <div class="stand">
-      <div class="shelf" id="shelf">
-        <figure class="m"><img src="img/cover_food.jpg" alt=""></figure>
-        <figure><img src="img/cover_tale.jpg" alt=""></figure>
-        <figure class="big"><img data-new="statement" src="img/new/statement_en.jpg" alt=""><span class="tag">NEW · PRO</span></figure>
-        <figure class="big"><img data-new="monthly" src="img/new/monthly_en.jpg" alt=""><span class="tag">NEW · PRO</span></figure>
-        <figure class="big"><img data-new="voyage" src="img/new/voyage_en.jpg" alt=""><span class="tag">NEW · PRO</span></figure>
-        <figure class="big"><img data-new="atelier" src="img/new/atelier_en.jpg" alt=""><span class="tag">NEW · PRO</span></figure>
-        <figure><img src="img/cover_noir.jpg" alt=""></figure>
-        <figure class="m"><img src="img/cover_weekly.jpg" alt=""></figure>
-      </div>
-      <div class="ledge"></div>
     </div>
-    <p class="cap" data-t="standcap">Covers that belong on a newsstand — now with your photos</p>
+    <div class="phone"><img data-home src="img/v12/home_en.jpg" alt=""></div>
   </section>
+</div>
+</header>
+<div class="wrap">
 
   <section>
-    <div class="kicker">WHAT'S NEW · 1.1</div>
-    <h2 class="t" data-t="h2n">1.1 — Make it feel like a real magazine.</h2>
+    <div class="kicker">NEW IN 1.2</div>
+    <h2 class="t" data-t="h2n">1.2 — the big glow-up.</h2>
+    <p class="sub" data-t="soon12">The 1.2 update is coming to the App Store and Google Play soon.</p>
     <hr class="rule">
-    <div class="news">
-      <div><h3 data-t="n1t">4 new Pro covers</h3><p data-t="n1p">Monthly · Atelier · Voyage · Statement</p></div>
-      <div><h3 data-t="n2t">32 pieces of magazine type</h3><p data-t="n2p">Cover Story, Exclusive, Happy Birthday, Summer Issue and more (2 are free)</p></div>
-      <div><h3 data-t="n3t">Foil type in 6 finishes</h3><p data-t="n3p">Gold, silver, copper, rose gold, holographic and black — type that shines like print (Pro)</p></div>
-      <div><h3 data-t="n4t">4 Pro page layouts</h3><p data-t="n4p">Opener · photo essay · contact sheet · contents (builds itself from your pages)</p></div>
-      <div><h3 data-t="n5t">Gold edition</h3><p data-t="n5p">16 foil ornaments: laurel, crown, corner flourish and more (Pro)</p></div>
-      <div><h3 data-t="n6t">Special materials</h3><p data-t="n6p">16 vellum, holographic and glitter pieces (buy separately or get them with Pro)</p></div>
+    <div class="feat">
+      <div class="f">
+        <div class="media"><div class="phone"><video src="img/v12/film_turn.mp4" poster="img/v12/film_turn.jpg" autoplay muted loop playsinline preload="metadata"></video></div></div>
+        <div class="tx"><h3 data-t="f1t">Flip-through video</h3><p data-t="f1p">A 9:16 video of your magazine turning its pages — save it and post it straight to Reels or Stories. No sound is added; pick your music when you post. Page turn is free (up to 15 seconds); Newsstand and Foil close-up are Pro.</p></div>
+      </div>
+      <div class="f">
+        <div class="media"><img src="img/v12/cut.jpg" alt="" loading="lazy"></div>
+        <div class="tx"><h3 data-t="f3t">Cut from a photo</h3><p data-t="f3p">Tap a friend, a dish or your dog in a photo and it becomes a sticker. White die-cut is free; gold foil, holographic and glitter edges are Pro. The cutting happens on your phone, too.</p><p class="note" data-t="f3n">Food and pets are cut on supported phones (iPhone with iOS 17 or later, Android with Google Play services); elsewhere, people only.</p></div>
+      </div>
+      <div class="f wide">
+        <div class="media"><img data-mood src="img/v12/moods_en.jpg" alt="" loading="lazy"></div>
+        <div class="tx"><h3 data-t="f2t">Moods</h3><p data-t="f2p">One tap restyles the cover, every page and the materials — your words and photos stay. Chic mono and Storybook are free; Luxe, Coquette and Film are Pro.</p></div>
+      </div>
+      <div class="f wide">
+        <div class="media"><img src="img/v12/brushes.jpg" alt="" loading="lazy"></div>
+        <div class="tx"><h3 data-t="f4t">Sticker photo brushes</h3><p data-t="f4p">Glitter, neon, hearts, stars — 7 brushes for drawing on photos. Outline pen and Blush are free; the other five are Pro.</p></div>
+      </div>
+      <div class="f wide">
+        <div class="media" style="background:#fff"><img src="img/v12/coquette.jpg" alt="" loading="lazy" style="max-width:400px"></div>
+        <div class="tx"><h3><span data-t="f5t">Coquette edition</span><small>PRO</small></h3><p data-t="f5p">16 satin ribbon, pearl and lace stickers.</p></div>
+      </div>
     </div>
+    <p class="try" data-t="try">Try Pro covers, moods, brushes, edges and video styles freely — you only unlock them when you export.</p>
   </section>
 
   <section>
@@ -245,6 +309,7 @@
           <li data-t="fr2">Basic stickers, tape and handwriting</li>
           <li data-t="fr3">Image and PDF export (with a small mark)</li>
           <li data-t="fr4">Decorate inside pages freely</li>
+          <li data-t="fr5">2 moods · flip-through video (up to 15 seconds)</li>
         </ul>
       </div>
       <div class="pcard pro">
@@ -256,6 +321,7 @@
           <li data-t="pr1">Save and export books with inside pages</li>
           <li data-t="pr2">11 Pro covers · gilt, art-deco and torn-paper frames</li>
           <li data-t="pr4">Magazine type and foil · Pro page layouts · Gold edition and Special materials</li>
+          <li data-t="pr5">3 moods · Coquette edition · sticker edges and brushes · every video style, no length limit</li>
           <li data-t="pr3">No mark, higher resolution</li>
         </ul>
       </div>
@@ -272,6 +338,7 @@
       <details><summary data-t="q2">Does it make albums automatically?</summary><p data-t="a2">No. Google Photos and Apple Photos already do that well. Gallory is where you make one book from photos you chose. We lay out a draft; the layout, words and materials are yours.</p></details>
       <details><summary data-t="q3">How far does free go?</summary><p data-t="a3">A single cover is free all the way — make it, export it, share it. Pro is needed only to save and export a book with inside pages. Decorating is always free.</p></details>
       <details><summary data-t="q4">Which languages?</summary><p data-t="a4">Korean, English, Japanese, Spanish and Portuguese, with Korean and Japanese serif masthead fonts included.</p></details>
+      <details><summary data-t="q5">Does the video have sound?</summary><p data-t="a5">No. Pick your music in Instagram or TikTok when you post — that way there is nothing to worry about with music rights.</p></details>
     </div>
   </section>
 
@@ -289,11 +356,11 @@
   var T={
     ko:{
       new11:"진짜 잡지처럼 — 새 Pro 표지·잡지 글자·박 글자",
-      h1:"내 사진으로,<br>내가 직접 만드는 매거진.",
-      lead:"사진을 고르면 표지가 되고, 더 고르면 속지가 깔립니다. 좋아하는 맛집은 지도로, 여행은 경로를 손으로 그려 한 권에. 자동으로 만들어 주는 앱이 아니라, 당신이 만드는 앱입니다.",
+      h1:"당신의 사진이<br><b>매거진이 됩니다</b>",
+      lead:"표지를 고르고, 사진을 얹고, 속지를 넘기며 꾸미면 — 가판대에 놓일 법한 한 권. 이제 한 장씩 넘어가는 영상으로도.",
       soon:"문의: <a href=\"mailto:support@gallory.app\">support@gallory.app</a>",
       standcap:"가판대에 놓일 법한 표지 — 이제 내 사진으로",
-      h2n:"1.1 — 진짜 잡지처럼.",
+      h2n:"1.2 — 화보처럼, 영상처럼.",
       n1t:"새 Pro 표지 4종",
       n1p:"월간지 · 아틀리에 · 기행 · 스테이트먼트",
       n2t:"잡지 글자 48종",
@@ -363,7 +430,25 @@
       a4:"한국어·영어·일본어·스페인어·포르투갈어. 한글 명조와 일본어 명조 제호 글꼴이 들어 있습니다.",
       fprivacy:"개인정보처리방침",
       fterms:"이용약관",
-      title:"Gallory — 내 사진으로 직접 만드는 매거진"
+      title:"Gallory — 내 사진으로 직접 만드는 매거진",
+      soon12:"1.2 업데이트는 곧 App Store·Google Play에 나와요.",
+      new12:"넘김 영상 · 무드 · 사진에서 오리기",
+      f1t:"넘김 영상",
+      f1p:"내 잡지가 한 장씩 넘어가는 9:16 영상. 사진첩에 저장하고 릴스·스토리에 그대로. 소리는 넣지 않아요 — 음악은 올릴 때 골라 주세요. 잡지 넘기기는 무료(15초까지), 가판대·금박 클로즈업은 Pro.",
+      f2t:"무드 갈아입기",
+      f2p:"단추 하나로 표지·속지·재료가 한꺼번에. 글과 사진은 그대로예요. 시크 모노·동화는 무료, 럭셔리·코케트·필름은 Pro.",
+      f3t:"사진에서 오리기",
+      f3p:"사진 속 친구·음식·강아지를 누르면 스티커가 돼요. 흰 칼선은 무료, 금박·홀로그램·반짝이 테두리는 Pro. 오리기도 폰 안에서만.",
+      f3n:"음식·반려동물은 지원하는 폰(iOS 17 이상 아이폰, Google Play 서비스가 있는 안드로이드)에서 — 그 밖에서는 사람만 오려져요.",
+      f4t:"스티커 사진 붓",
+      f4p:"반짝이·네온·하트·별 — 사진 위에 그리는 붓 7종. 흰 테 펜·볼 터치는 무료, 나머지 다섯은 Pro.",
+      f5t:"코케트 에디션",
+      f5p:"새틴 리본·진주·레이스 스티커 16종.",
+      fr5:"무드 2종 · 넘김 영상(15초까지)",
+      pr5:"무드 3종 · 코케트 에디션 · 스티커 테두리·사진 붓 · 모든 영상 움직임, 길이 제한 없이",
+      q5:"영상에 소리가 있나요?",
+      a5:"아니요. 인스타그램·틱톡에 올릴 때 그 앱에서 음악을 골라 주세요 — 음악 저작권 걱정이 없도록요.",
+      try:"Pro 표지·무드·붓·테두리·영상 움직임은 마음껏 써 보고, 내보낼 때만 열면 돼요."
     },
     en:{
       title:"Gallory — The magazine you make from your own photos",
@@ -407,13 +492,14 @@
       n6t:"Special materials",
       n6p:"16 vellum, holographic and glitter pieces (buy separately or get them with Pro)",
       h2s:"Inside the app.",
-      pr4:"Magazine type and foil · Pro page layouts · Gold edition and Special materials"
+      pr4:"Magazine type and foil · Pro page layouts · Gold edition and Special materials",
+      try:"Try Pro covers, moods, brushes, edges and video styles freely — you only unlock them when you export."
     },
     ja:{
-      title:"Gallory — 自分の写真で、自分でつくるマガジン",
+      title:"Gallory — 自分の写真でつくるマガジン",
       eyebrow:"写真一枚からはじまる、わたしの雑誌",
-      h1:"わたしの写真で、<br>わたしがつくるマガジン。",
-      lead:"写真を選ぶと表紙になり、もっと選ぶと中ページが並びます。好きなお店は地図に、旅は手で描いた道のりに、一冊へ。自動でつくるアプリではなく、あなたがつくるアプリです。", soon:"お問い合わせ：<a href='mailto:support@gallory.app'>support@gallory.app</a>",
+      h1:"あなたの写真が<br><b>一冊の雑誌になります</b>",
+      lead:"表紙を選び、写真をのせ、ページをめくりながら飾れば — 書店に並びそうな一冊に。いまは、ページがめくれる動画にもなります。", soon:"お問い合わせ：<a href='mailto:support@gallory.app'>support@gallory.app</a>",
       k1:"HOW IT WORKS", h2a:"三歩で一冊。",
       s1t:"表紙を選んで、写真を一枚", s1p:"週刊誌・旅・絵本・ファッション・人生・グルメ — 売り場から好きな表紙を選び、写真を一枚。誌名・文・素材は手で変えられます。",
       s2t:"もっと選ぶと、中ページ", s2p:"複数選ぶと最初の一枚が表紙、残りはスクラップのように中ページへ。印画紙のふち、ステッカー、手書き、テープも自由に。",
@@ -437,7 +523,7 @@
       fprivacy:"プライバシーポリシー", fterms:"利用規約",
       new11:"本物の雑誌のように — 新しいPro表紙・雑誌風の文字・箔押し風の文字",
       standcap:"書店に並びそうな表紙を、あなたの写真で",
-      h2n:"1.1 — 本物の雑誌のように。",
+      h2n:"1.2 大型アップデート。",
       n1t:"新しいPro表紙4種",
       n1p:"月刊誌・アトリエ・紀行・ステートメント",
       n2t:"雑誌風の文字48種",
@@ -451,13 +537,31 @@
       n6t:"特別な素材",
       n6p:"トレーシングペーパー・ホログラム・グリッターの16種（単品購入またはPro）",
       h2s:"アプリの中は、こんなふう。",
-      pr4:"雑誌風の文字・箔押し風の文字・中ページのテンプレート・ゴールドエディション・特別な素材"
+      pr4:"雑誌風の文字・箔押し風の文字・中ページのテンプレート・ゴールドエディション・特別な素材",
+      soon12:"1.2アップデートは、まもなくApp Store・Google Playで配信されます。",
+      new12:"ページめくり動画・ムード・写真から切り抜く",
+      f1t:"ページめくり動画",
+      f1p:"自分の雑誌が1ページずつめくれる9:16の動画。端末に保存して、リールやストーリーズにそのまま。音は入りません — 音楽は投稿するときに選んでください。「ページめくり」は無料（15秒まで）、「平積み」「箔押しズーム」はPro。",
+      f2t:"ムード着せかえ",
+      f2p:"ワンタップで、表紙もすべてのページも素材もまとめて。文章と写真はそのままです。シックモノクロ・絵本は無料、ラグジュアリー・コケット・フィルムはPro。",
+      f3t:"写真から切り抜く",
+      f3p:"写真の友だちやごはん、ペットをタップすればステッカーに。白フチは無料、金箔・ホログラム・ラメのフチはPro。切り抜きも端末の中だけで。",
+      f3n:"ごはんやペットの切り抜きは対応端末（iOS 17以降のiPhone、Google Play開発者サービスのあるAndroid）で。それ以外では人物のみです。",
+      f4t:"らくがきペン",
+      f4p:"ラメ・ネオン・ハート・スター — 写真に描けるペン7種。白フチペン・チークは無料、ほかの5種はPro。",
+      f5t:"コケットエディション",
+      f5p:"サテンのリボン・パール・レースのステッカー16種。",
+      fr5:"ムード2種・ページめくり動画（15秒まで）",
+      pr5:"ムード3種・コケットエディション・ステッカーのフチとらくがきペン・すべての動画の動き（長さの制限なし）",
+      q5:"動画に音は入りますか？",
+      a5:"いいえ。InstagramやTikTokに投稿するとき、そのアプリで音楽を選んでください — 音楽の権利を気にしなくてすむように。",
+      try:"Proの表紙・ムード・ペン・フチ・動画の動きは自由に試せます。Proを開くのは書き出すときだけです。"
     },
     es:{
       title:"Gallory — La revista que haces con tus propias fotos",
       eyebrow:"Tu propia revista, a partir de una foto",
-      h1:"Con mis fotos,<br>una revista que hago yo.",
-      lead:"Elige una foto y será la portada; elige más y se montan las páginas. Tus restaurantes favoritos se vuelven un mapa, los viajes una ruta que dibujas a mano. No es una app que lo hace por ti: es una app donde lo haces tú.", soon:"Preguntas: <a href='mailto:support@gallory.app'>support@gallory.app</a>",
+      h1:"Tus fotos<br><b>se vuelven revista</b>",
+      lead:"Elige una portada, pon tus fotos y decora página a página: una revista digna de quiosco. Ahora también en vídeo, pasando sus páginas.", soon:"Preguntas: <a href='mailto:support@gallory.app'>support@gallory.app</a>",
       k1:"CÓMO FUNCIONA", h2a:"Tres pasos y un libro.",
       s1t:"Elige una portada, pon una foto", s1p:"Semanal, viaje, cuento, moda, vida, comida: elige una portada del quiosco y añade una foto. La cabecera, las líneas y los materiales los cambias tú.",
       s2t:"Elige más, y tienes páginas", s2p:"Elige varias fotos: la primera es la portada y el resto se coloca como un álbum de recortes. Bordes de foto, pegatinas, letra a mano, cinta, como quieras.",
@@ -481,7 +585,7 @@
       fprivacy:"Privacidad", fterms:"Términos",
       new11:"Como una revista de verdad: nuevas portadas Pro, tipografía de revista, letras metalizadas",
       standcap:"Portadas dignas de un quiosco, ahora con tus fotos",
-      h2n:"1.1: como una revista de verdad.",
+      h2n:"1.2 — gran actualización.",
       n1t:"4 nuevas portadas Pro",
       n1p:"Mensual · Atelier · Viaje · Statement",
       n2t:"32 tipografías de revista",
@@ -495,13 +599,31 @@
       n6t:"Materiales especiales",
       n6p:"16 piezas de papel vegetal, holograma y purpurina (aparte o con Pro)",
       h2s:"Así es por dentro.",
-      pr4:"Tipografía de revista y metalizada · plantillas Pro · Edición dorada y Materiales especiales"
+      pr4:"Tipografía de revista y metalizada · plantillas Pro · Edición dorada y Materiales especiales",
+      soon12:"La actualización 1.2 llega pronto a App Store y Google Play.",
+      new12:"Vídeo pasando páginas · Estilos · Recorta de una foto",
+      f1t:"Vídeo pasando páginas",
+      f1p:"Un vídeo 9:16 de tu revista pasando páginas: guárdalo y publícalo tal cual en Reels o Historias. Sin sonido; elige la música al publicar. Pasar páginas es gratis (hasta 15 segundos); Quiosco y Brillo dorado son Pro.",
+      f2t:"Estilos",
+      f2p:"Con un toque cambian la portada, todas las páginas y los materiales; tus textos y fotos se quedan. Mono chic y Cuento son gratis; Lujo, Coquette y Película son Pro.",
+      f3t:"Recorta de una foto",
+      f3p:"Toca a un amigo, un plato o tu perro en una foto y se vuelve sticker. El troquel blanco es gratis; lámina dorada, holográfico y purpurina son Pro. También se recorta en tu móvil.",
+      f3n:"Comida y mascotas se recortan en móviles compatibles (iPhone con iOS 17 o posterior, Android con los servicios de Google Play); en los demás, solo personas.",
+      f4t:"Pinceles de foto decorada",
+      f4p:"Purpurina, neón, corazones, estrellas: 7 pinceles para dibujar sobre fotos. Bolígrafo con borde y Rubor son gratis; los otros cinco son Pro.",
+      f5t:"Edición coquette",
+      f5p:"16 stickers de lazos de satén, perlas y encaje.",
+      fr5:"2 estilos · vídeo pasando páginas (hasta 15 segundos)",
+      pr5:"3 estilos · Edición coquette · bordes y pinceles · todos los vídeos, sin límite de duración",
+      q5:"¿El vídeo tiene sonido?",
+      a5:"No. Elige la música en Instagram o TikTok al publicar; así no hay que preocuparse por los derechos de la música.",
+      try:"Prueba libremente portadas, estilos, pinceles, bordes y vídeos Pro: solo se desbloquean al exportar."
     },
     pt:{
-      title:"Gallory — A revista que você faz com as suas fotos",
+      title:"Gallory — A revista que você faz com suas próprias fotos",
       eyebrow:"A sua própria revista, a partir de uma foto",
-      h1:"Com as minhas fotos,<br>uma revista que eu mesmo faço.",
-      lead:"Escolha uma foto e ela vira a capa; escolha mais e as páginas são montadas. Seus restaurantes favoritos viram um mapa, as viagens uma rota desenhada à mão. Não é um app que faz por você: é um app onde você faz.", soon:"Dúvidas: <a href='mailto:support@gallory.app'>support@gallory.app</a>",
+      h1:"Suas fotos<br><b>viram uma revista</b>",
+      lead:"Escolha uma capa, coloque suas fotos e decore página por página: uma revista digna de banca. Agora também em vídeo, virando as páginas.", soon:"Dúvidas: <a href='mailto:support@gallory.app'>support@gallory.app</a>",
       k1:"COMO FUNCIONA", h2a:"Três passos e um livro.",
       s1t:"Escolha uma capa, coloque uma foto", s1p:"Semanal, viagem, livro ilustrado, moda, vida, comida: escolha uma capa na banca e adicione uma foto. Título, linhas e materiais você muda à mão.",
       s2t:"Escolha mais, ganhe páginas", s2p:"Escolha várias fotos: a primeira é a capa e as outras são dispostas como um scrapbook. Bordas de foto, adesivos, letra à mão, fita, como quiser.",
@@ -525,7 +647,7 @@
       fprivacy:"Privacidade", fterms:"Termos",
       new11:"Como uma revista de verdade: novas capas Pro, tipografia de revista, letras metalizadas",
       standcap:"Capas dignas de banca, agora com as suas fotos",
-      h2n:"1.1: como uma revista de verdade.",
+      h2n:"1.2 — grande atualização.",
       n1t:"4 novas capas Pro",
       n1p:"Mensal · Ateliê · Viagem · Statement",
       n2t:"32 tipografias de revista",
@@ -539,7 +661,25 @@
       n6t:"Materiais especiais",
       n6p:"16 peças de papel vegetal, holográfico e glitter (à parte ou com o Pro)",
       h2s:"Por dentro do app.",
-      pr4:"Tipografia de revista e metalizada · modelos Pro · Edição dourada e Materiais especiais"
+      pr4:"Tipografia de revista e metalizada · modelos Pro · Edição dourada e Materiais especiais",
+      soon12:"A atualização 1.2 chega em breve à App Store e ao Google Play.",
+      new12:"Vídeo virando páginas · Estilos · Recorte de uma foto",
+      f1t:"Vídeo virando páginas",
+      f1p:"Um vídeo 9:16 da sua revista virando as páginas: salve e poste direto nos Reels ou Stories. Sem som; escolha a música ao postar. Virar páginas é grátis (até 15 segundos); Banca e Close dourado são Pro.",
+      f2t:"Estilos",
+      f2p:"Com um toque mudam a capa, todas as páginas e os materiais; seus textos e fotos ficam. Mono chique e Conto são grátis; Luxo, Coquette e Filme são Pro.",
+      f3t:"Recorte de uma foto",
+      f3p:"Toque num amigo, num prato ou no seu cachorro na foto e ele vira adesivo. O corte branco é grátis; dourado, holográfico e glitter são Pro. O recorte também acontece no seu celular.",
+      f3n:"Comida e pets são recortados em celulares compatíveis (iPhone com iOS 17 ou posterior, Android com os serviços do Google Play); nos demais, só pessoas.",
+      f4t:"Pincéis de foto decorada",
+      f4p:"Glitter, neon, corações, estrelas: 7 pincéis para desenhar nas fotos. Caneta com contorno e Blush são grátis; os outros cinco são Pro.",
+      f5t:"Edição coquette",
+      f5p:"16 adesivos de laços de cetim, pérolas e renda.",
+      fr5:"2 estilos · vídeo virando páginas (até 15 segundos)",
+      pr5:"3 estilos · Edição coquette · bordas e pincéis · todos os vídeos, sem limite de duração",
+      q5:"O vídeo tem som?",
+      a5:"Não. Escolha a música no Instagram ou no TikTok ao postar; assim não há com o que se preocupar em direitos musicais.",
+      try:"Experimente à vontade capas, estilos, pincéis, bordas e vídeos Pro: só desbloqueia ao exportar."
     }
   };
   // HTML 원문은 영어 — 사전에 없는 열쇠만 원문에서 채운다(다시 영어로 돌아올 수 있게).
@@ -566,11 +706,11 @@
     document.getElementById('playStore').href='https://play.google.com/store/apps/details?id=com.gallory.app&hl='+(lang==='pt'?'pt-BR':lang);
     document.querySelectorAll('[data-new]').forEach(function(el){ el.src='img/new/'+el.dataset.new+'_'+lang+'.jpg'; });
     document.querySelectorAll('[data-shot]').forEach(function(el){ el.src='img/shots/'+lang+'/'+el.dataset.shot+'.jpg'; });
+    document.querySelectorAll('[data-home]').forEach(function(el){ el.src='img/v12/home_'+lang+'.jpg'; });
+    document.querySelectorAll('[data-mood]').forEach(function(el){ el.src='img/v12/moods_'+lang+'.jpg'; });
   }
   btns.forEach(function(b){ b.addEventListener('click',function(){ pick(b.dataset.lang); }); });
   var nav=(navigator.language||'en').slice(0,2); if(T[nav] && nav!=='en') pick(nav); else media('en');
-  // 폰에서는 가판대가 옆으로 밀린다 — 새 표지가 가운데 오게.
-  window.addEventListener('load',function(){ var sh=document.getElementById('shelf'); if(sh.scrollWidth>sh.clientWidth) sh.scrollLeft=(sh.scrollWidth-sh.clientWidth)/2; });
 </script>
 </body>
 </html>
