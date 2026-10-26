@@ -710,7 +710,8 @@
     document.querySelectorAll('[data-mood]').forEach(function(el){ el.src='img/v12/moods_'+lang+'.jpg'; });
   }
   btns.forEach(function(b){ b.addEventListener('click',function(){ pick(b.dataset.lang); }); });
-  var nav=(navigator.language||'en').slice(0,2); if(T[nav] && nav!=='en') pick(nav); else media('en');
+  // 기본은 영어(2026-10-26 대표님). 언어 단추 · 주소의 ?lang=ko|ja|es|pt 만 바꾼다.
+  var q=(new URLSearchParams(location.search).get('lang')||'').slice(0,2); if(T[q] && q!=='en') pick(q); else media('en');
 </script>
 </body>
 </html>

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>개인정보처리방침 · Gallory</title>
+<title>Privacy Policy · Gallory</title>
 <meta name="robots" content="noindex">
 <style>
   :root{ --ink:#2a2624; --muted:#6d6459; --line:#e7ded1; --canvas:#faf9f6; --card:#fffdf9; --coral:#e08a6f; --gold:#c9a24a; }
@@ -31,18 +31,18 @@
 <body>
 <div class="wrap">
   <a class="brand" href="./">Gallory</a>
-  <h1 id="ttl">개인정보처리방침</h1>
-  <p class="eff" id="eff">시행일 2026.10.26</p>
+  <h1 id="ttl">Privacy Policy</h1>
+  <p class="eff" id="eff">Effective 2026.10.26</p>
 
   <div class="lang" role="tablist" aria-label="language">
-    <button role="tab" data-lang="ko" aria-selected="true">한국어</button>
-    <button role="tab" data-lang="en" aria-selected="false">English</button>
+    <button role="tab" data-lang="ko" aria-selected="false">한국어</button>
+    <button role="tab" data-lang="en" aria-selected="true">English</button>
     <button role="tab" data-lang="ja" aria-selected="false">日本語</button>
   </div>
   <hr class="rule">
 
   <!-- ko -->
-  <div data-body="ko">
+  <div data-body="ko" hidden>
     <section><h2>우리의 원칙</h2><p>Gallory(이하 &quot;앱&quot;)는 당신의 기록을 소중히 다룹니다. 핵심 원칙은 “당신의 데이터는 당신의 기기에 머문다”입니다. 앱은 회원가입이 없고, 당신의 사진·기록을 우리 서버로 보내지 않습니다.</p></section>
     <section><h2>앱이 다루는 정보</h2><p>• 당신이 고른 사진과 그 메타데이터(촬영 시각·위치 등)
 • 당신이 만든 매거진(표지·속지·지도 핀·글)과 즐겨찾기
@@ -73,7 +73,7 @@
   </div>
 
   <!-- en -->
-  <div data-body="en" hidden>
+  <div data-body="en">
     <section><h2>Our principle</h2><p>Gallory (&quot;the app&quot;) treats your memories with care. Our core principle is simple: your data stays on your device. There is no account, and we never send your photos or records to our servers.</p></section>
     <section><h2>What the app handles</h2><p>• Photos you pick and their metadata (capture time, location, etc.)
 • Magazines you make (covers, inside pages, map pins, text) and favorites
@@ -149,7 +149,8 @@ Address: 207-2, 16, Yeongudanji 1-gil, Jinhae-gu, Changwon-si, Gyeongsangnam-do,
     document.documentElement.lang=lang;
   }
   btns.forEach(function(b){ b.addEventListener('click',function(){ pick(b.dataset.lang); }); });
-  var nav=(navigator.language||'ko').slice(0,2); if(nav==='en'||nav==='ja') pick(nav);
+  // 기본은 영어(2026-10-26 대표님) — 브라우저 언어로 바꾸지 않는다. ?lang=ko|ja 만.
+  var q=(new URLSearchParams(location.search).get('lang')||'').slice(0,2); if(q==='ko'||q==='ja') pick(q);
 </script>
 </body>
 </html>
